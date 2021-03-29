@@ -14,7 +14,7 @@ class DrawerCustomPainter extends CustomPainter {
     final span = 1.0 / itemsLength;
     double l = startingPos + (span) / 2;
     centerLoc = l; // unit: %
-    this.span = span;
+    this.span = span - 0.4;
   }
 
   @override
@@ -63,6 +63,8 @@ class DrawerCustomPainter extends CustomPainter {
       ..close();
 
     canvas.drawPath(leftPath, paint);
+
+    canvas.drawCircle(Offset(width * 0.9, centerLoc * size.height), 5, paint);
   }
 
   @override
