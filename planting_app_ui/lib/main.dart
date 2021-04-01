@@ -14,6 +14,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var _currentIndex = 0;
+
   List<DrawerItem> _drawerItems = <DrawerItem>[
     DrawerItem(
       title: "Green Plants",
@@ -29,19 +31,32 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Row(
-          children: [
-            LeftNavigationBar(
-              // currentIndex: 1,
-              items: _drawerItems,
-              width: 100,
-              onTap: (value) {},
-            ),
-            Expanded(
-                child: Container(
-              color: Colors.red,
-            ))
-          ],
+        body: SafeArea(
+          child: Row(
+            children: [
+              // NavigationRail(destinations: destinations, selectedIndex: selectedIndex)
+              LeftNavigationBar(
+                currentIndex: _currentIndex,
+                items: _drawerItems,
+                width: 100,
+                onTap: (value) {
+                  setState(() {
+                    print("Current index: $value");
+                    _currentIndex = value;
+                  });
+                },
+                topIcon: Icon(Icons.ac_unit),
+                onTapTopIcon: () {
+                  print("onTapTopIcon");
+                },
+                bottomIcon: Icon(Icons.access_alarm),
+                onTapBottomIcon: () {
+                  print("onTapBottomIcon");
+                },
+              ),
+              Expanded(child: Container())
+            ],
+          ),
         ),
       ),
     );
