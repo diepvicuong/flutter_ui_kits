@@ -1,11 +1,8 @@
-import 'dart:ffi';
-
+import 'package:dribbble_plant_app/models/drawer_item.dart';
 import 'package:dribbble_plant_app/utils/constants.dart';
 import 'package:dribbble_plant_app/widgets/custom_paint.dart';
-import 'package:dribbble_plant_app/widgets/drawer_item.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
+import 'marquee.dart';
 
 typedef _LetIndexPage = bool Function(int value);
 
@@ -20,7 +17,7 @@ class LeftNavigationBar extends StatefulWidget {
   final double width;
   final int currentIndex;
   final Icon? topIcon;
-  final GestureTapCallback? onTapTopIcon;
+  final VoidCallback? onTapTopIcon;
   final Icon? bottomIcon;
   final VoidCallback? onTapBottomIcon;
 
@@ -39,10 +36,8 @@ class LeftNavigationBar extends StatefulWidget {
       this.bottomIcon,
       this.onTapTopIcon,
       this.onTapBottomIcon})
-      :
-        // letIndexPage = letIndexPage ?? ((_) => true),
-        assert(items.length >= 1),
-        // assert(0 <= index && index < items.length),
+      : assert(width >= 50),
+        assert(items.length >= 1 && items.length <= 4),
         super(key: key);
 
   @override
@@ -119,10 +114,8 @@ class _LeftNavigationBarState extends State<LeftNavigationBar>
             child: widget.topIcon != null
                 ? IconButton(
                     icon: widget.topIcon!,
-                    onPressed: () {
-                      print("onPRess");
-                      widget.onTapTopIcon!;
-                    })
+                    onPressed: widget.onTapTopIcon,
+                  )
                 : Container(color: Colors.orange[100]),
             height: 50,
           ),
@@ -162,15 +155,19 @@ class _LeftNavigationBarState extends State<LeftNavigationBar>
                       )),
                       Positioned(
                         child: Center(
-                          child: Transform.rotate(
-                            angle: -math.pi / 2,
-                            child: Text(
-                              title,
-                              style: TextStyle(
-                                  color: widget.currentIndex == index
-                                      ? Colors.white
-                                      : Colors.white38,
-                                  fontSize: 16),
+                          child: RotatedBox(
+                            quarterTurns: -1,
+                            child: MarqueeWidget(
+                              direction: Axis.horizontal,
+                              child: Text(
+                                title,
+                                // maxLines: 1,
+                                style: TextStyle(
+                                    color: widget.currentIndex == index
+                                        ? Colors.white
+                                        : Colors.white38,
+                                    fontSize: 16),
+                              ),
                             ),
                           ),
                         ),
@@ -185,10 +182,8 @@ class _LeftNavigationBarState extends State<LeftNavigationBar>
             child: widget.bottomIcon != null
                 ? IconButton(
                     icon: widget.bottomIcon!,
-                    onPressed: () {
-                      print("onPress bottom");
-                      widget.onTapBottomIcon;
-                    })
+                    onPressed: widget.onTapBottomIcon,
+                  )
                 : Container(color: Colors.yellow[100]),
             height: 50,
           ),

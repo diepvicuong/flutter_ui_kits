@@ -7,5 +7,5 @@ class DrawerItem {
   final double height;
   final String title;
 
-  DrawerItem({this.height = 150, required this.title});
+  DrawerItem({this.height = 120, required this.title});
 }
