@@ -1,16 +1,16 @@
-# dribbble_plant_app
+# ❤️ ❤️ Free Flutter UI Kits ❤️ ❤️
+### Support App
 
-A new Flutter project.
+> ⭐️ Star the repo to show support. ⭐️
+> 
+### 💻 Requirements
 
-## Getting Started
+- Any Operating System (MacOS, Linux, Windows)
+- Any IDE with Flutter SDK installed (Android Studio, VSCode etc)
+- A little knowledge of Dart and Flutter
 
-This project is a starting point for a Flutter application.
+### 👨‍💻 Author
 
-A few resources to get you started if this is your first Flutter project:
+Apps were developed by diepvicuong
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![planting_app_ui](https://user-images.githubusercontent.com/40752908/113483476-d05e9c80-94cd-11eb-9e15-22ded0ec50e3.png)
