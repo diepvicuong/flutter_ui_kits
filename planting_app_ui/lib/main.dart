@@ -1,7 +1,10 @@
+import 'package:dribbble_plant_app/pages/detail_screen.dart';
+import 'package:dribbble_plant_app/utils/constants.dart';
 import 'package:dribbble_plant_app/widgets/left_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'models/drawer_item.dart';
+import 'models/plant_item.dart';
 import 'pages/home_screen.dart';
 
 void main() {

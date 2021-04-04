@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 class PlantWidget extends StatelessWidget {
   final PlantItem plant;
+  final VoidCallback? onTap;
 
-  const PlantWidget({Key? key, required this.plant}) : super(key: key);
+  const PlantWidget({Key? key, required this.plant, this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +15,12 @@ class PlantWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Image.asset(
-            plant.image,
-            fit: BoxFit.fitWidth,
+          GestureDetector(
+            onTap: onTap,
+            child: Image.asset(
+              plant.image,
+              fit: BoxFit.fitHeight,
+            ),
           ),
           SizedBox(height: 20),
           Text(

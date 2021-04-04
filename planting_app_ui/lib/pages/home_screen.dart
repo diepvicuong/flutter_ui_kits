@@ -1,4 +1,5 @@
 import 'package:dribbble_plant_app/models/plant_item.dart';
+import 'package:dribbble_plant_app/pages/detail_screen.dart';
 import 'package:dribbble_plant_app/widgets/plant_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -17,12 +18,22 @@ class _HomeScreenState extends State<HomeScreen> {
   double xOffset = 0;
   double yOffset = 0;
   bool isDrawerOpen = false;
-
+  List<PlantItem> listPlant = [
+    PlantItem(
+        name: "Scandinavian plant",
+        description: "Low maintenance flower in a white ceramic pot",
+        price: 45.00,
+        image: 'assets/images/scandinavian.png'),
+    PlantItem(
+        name: "Turf pot plant",
+        description:
+            "Big leaf plant in a turf pot for your home or office decor",
+        price: 45.00,
+        image: 'assets/images/klipartz.png'),
+  ];
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      // transform: Matrix4.translationValues(xOffset, yOffset, 0)
-      //   ..rotateY(isDrawerOpen ? -0.5 : 0),
       duration: Duration(milliseconds: 200),
       decoration: BoxDecoration(
           color: widget.index == 0 ? Colors.white : Colors.blue[100]),
@@ -72,20 +83,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            PlantWidget(
-                plant: PlantItem(
-                    name: "Turf pot plant",
-                    description:
-                        "Big leaf plant in a turf pot for your home or office decor",
-                    price: 45.00,
-                    image: 'assets/images/klipartz.png')),
-            PlantWidget(
-                plant: PlantItem(
-                    name: "Scandinavian plant",
-                    description:
-                        "Low maintenance flower in a white ceramic pot",
-                    price: 45.00,
-                    image: 'assets/images/scandinavian.png')),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: listPlant.length,
+              itemBuilder: (context, index) {
+                return PlantWidget(
+                  plant: listPlant[index],
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              DetailScreen(plant: listPlant[index]),
+                        ));
+                  },
+                );
+              },
+            )
           ],
         ),
       ),
