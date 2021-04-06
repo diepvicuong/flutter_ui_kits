@@ -29,48 +29,45 @@ class _MyAppState extends State<MyApp> {
     DrawerItem(
       title: "Shape Close",
     ),
-    // DrawerItem(
-    //   title: "Test",
-    // ),
   ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.white,
+      ),
       home: Scaffold(
-        body: SafeArea(
-          child: Stack(
-            children: [
-              // NavigationRail(destinations: destinations, selectedIndex: selectedIndex)
-              Container(
-                color: Colors.white,
-                child: LeftNavigationBar(
-                  currentIndex: _currentIndex,
-                  items: _drawerItems,
-                  width: 70,
-                  onTap: (value) {
-                    setState(() {
-                      print("Current index: $value");
-                      _currentIndex = value;
-                    });
-                  },
-                  topIcon: Icon(
-                    Icons.workspaces_filled,
-                    color: Colors.white,
-                  ),
-                  onTapTopIcon: () {
-                    print("onTapTopIcon");
-                  },
-                  bottomIcon: Icon(Icons.home_outlined, color: Colors.white),
-                  onTapBottomIcon: () {
-                    print("onTapBottomIcon");
-                  },
+        body: Stack(
+          children: [
+            Container(
+              child: LeftNavigationBar(
+                currentIndex: _currentIndex,
+                items: _drawerItems,
+                width: 70,
+                onTap: (value) {
+                  setState(() {
+                    print("Current index: $value");
+                    _currentIndex = value;
+                  });
+                },
+                topIcon: Icon(
+                  Icons.workspaces_filled,
+                  color: Colors.white,
                 ),
+                onTapTopIcon: () {
+                  print("onTapTopIcon");
+                },
+                bottomIcon: Icon(Icons.home_outlined, color: Colors.white),
+                onTapBottomIcon: () {
+                  print("onTapBottomIcon");
+                },
               ),
-              HomeScreen(
-                index: _currentIndex,
-              ),
-            ],
-          ),
+            ),
+            HomeScreen(
+              index: _currentIndex,
+            ),
+          ],
         ),
       ),
     );

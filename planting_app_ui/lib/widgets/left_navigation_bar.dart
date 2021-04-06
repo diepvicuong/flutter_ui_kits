@@ -110,14 +110,17 @@ class _LeftNavigationBarState extends State<LeftNavigationBar>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
+          // SizedBox(
+          //   height: 20,
+          // ),
+          Padding(
+            padding: const EdgeInsets.only(top: 30.0),
             child: widget.topIcon != null
                 ? IconButton(
                     icon: widget.topIcon!,
                     onPressed: widget.onTapTopIcon,
                   )
                 : Container(color: Colors.orange[100]),
-            height: 50,
           ),
           Column(
             children: widget.items.map((item) {
@@ -178,14 +181,14 @@ class _LeftNavigationBarState extends State<LeftNavigationBar>
               );
             }).toList(),
           ),
-          SizedBox(
+          Padding(
+            padding: const EdgeInsets.only(bottom: 30.0),
             child: widget.bottomIcon != null
                 ? IconButton(
                     icon: widget.bottomIcon!,
                     onPressed: widget.onTapBottomIcon,
                   )
                 : Container(color: Colors.yellow[100]),
-            height: 50,
           ),
         ],
       ),

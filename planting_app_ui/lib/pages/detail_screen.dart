@@ -12,63 +12,64 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          color: Constants.kPrimaryColor,
-          child: Column(
-            children: [
-              Expanded(
-                flex: 8,
-                child: CustomPaint(
-                  painter: CustomContainerPainter(),
-                  child: Wrap(
-                    children: [
-                      ListTile(
-                        leading: IconButton(
-                            icon: Icon(
-                              Icons.arrow_back,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            }),
-                        trailing: IconButton(
-                            icon: Icon(
-                              Icons.shopping_cart_outlined,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {}),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: PlantWidget(plant: plant),
-                      ),
-                      SizedBox(height: 20)
-                    ],
-                  ),
+      appBar: AppBar(
+        elevation: 0,
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
+        actions: [
+          IconButton(
+              icon: Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.black,
+              ),
+              onPressed: () {}),
+        ],
+      ),
+      body: Container(
+        color: Constants.kPrimaryColor,
+        child: Column(
+          children: [
+            Expanded(
+              flex: 8,
+              child: CustomPaint(
+                painter: CustomContainerPainter(),
+                child: Wrap(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: PlantWidget(plant: plant),
+                    ),
+                    SizedBox(height: 20)
+                  ],
                 ),
               ),
-              Flexible(
-                  flex: 2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      FeatureWidget(
-                          image: 'assets/images/height.jpg',
-                          title: 'Height',
-                          value: '40cm - 50cm'),
-                      FeatureWidget(
-                          image: 'assets/images/thermometer.png',
-                          title: 'Temperature',
-                          value: '18°C to 25°C'),
-                      FeatureWidget(
-                          image: 'assets/images/plant-pot.png',
-                          title: 'Pot',
-                          value: 'Self Waltering Pot'),
-                    ],
-                  )),
-            ],
-          ),
+            ),
+            Flexible(
+                flex: 2,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    FeatureWidget(
+                        image: 'assets/images/height.jpg',
+                        title: 'Height',
+                        value: '40cm - 50cm'),
+                    FeatureWidget(
+                        image: 'assets/images/thermometer.png',
+                        title: 'Temperature',
+                        value: '18°C to 25°C'),
+                    FeatureWidget(
+                        image: 'assets/images/plant-pot.png',
+                        title: 'Pot',
+                        value: 'Self Waltering Pot'),
+                  ],
+                )),
+          ],
         ),
       ),
     );

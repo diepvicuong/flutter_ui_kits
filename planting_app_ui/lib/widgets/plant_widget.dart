@@ -17,9 +17,12 @@ class PlantWidget extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: onTap,
-            child: Image.asset(
-              plant.image,
-              fit: BoxFit.fitHeight,
+            child: Hero(
+              tag: 'plant-${plant.image}',
+              child: Image.asset(
+                plant.image,
+                fit: BoxFit.fitHeight,
+              ),
             ),
           ),
           SizedBox(height: 20),
