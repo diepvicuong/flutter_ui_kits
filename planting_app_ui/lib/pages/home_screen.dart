@@ -1,5 +1,6 @@
 import 'package:dribbble_plant_app/models/plant_item.dart';
 import 'package:dribbble_plant_app/pages/detail_screen.dart';
+import 'package:dribbble_plant_app/utils/constants.dart';
 import 'package:dribbble_plant_app/widgets/plant_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -18,19 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   double xOffset = 0;
   double yOffset = 0;
   bool isDrawerOpen = false;
-  List<PlantItem> listPlant = [
-    PlantItem(
-        name: "Scandinavian plant",
-        description: "Low maintenance flower in a white ceramic pot",
-        price: 45.00,
-        image: 'assets/images/scandinavian.png'),
-    PlantItem(
-        name: "Turf pot plant",
-        description:
-            "Big leaf plant in a turf pot for your home or office decor",
-        price: 45.00,
-        image: 'assets/images/klipartz.png'),
-  ];
+  
   @override
   Widget build(BuildContext context) {
     return widget.index != 0
@@ -103,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: RichText(
                         text: TextSpan(
                           text: 'Green ',
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Colors.black, fontSize: 20),
                           children: <TextSpan>[
                             TextSpan(text: '\n'),
                             TextSpan(

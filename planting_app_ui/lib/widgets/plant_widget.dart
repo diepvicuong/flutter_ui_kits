@@ -28,20 +28,23 @@ class PlantWidget extends StatelessWidget {
           SizedBox(height: 20),
           Text(
             plant.name,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: 10,
           ),
           Text(
             plant.description,
-            style: TextStyle(fontSize: 16, color: Colors.grey),
+            style: TextStyle(fontSize: 20, color: Colors.grey),
+          ),
+          SizedBox(
+            height: 20,
           ),
           Row(
             children: [
               Text(
                 '\$${plant.price}',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               SizedBox(width: 10),
               RawMaterialButton(

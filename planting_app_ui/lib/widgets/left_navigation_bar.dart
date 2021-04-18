@@ -110,9 +110,6 @@ class _LeftNavigationBarState extends State<LeftNavigationBar>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // SizedBox(
-          //   height: 20,
-          // ),
           Padding(
             padding: const EdgeInsets.only(top: 30.0),
             child: widget.topIcon != null
