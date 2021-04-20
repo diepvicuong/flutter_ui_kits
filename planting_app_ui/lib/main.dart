@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
       title: "Indoor Plants",
     ),
     DrawerItem(
-      title: "Shape Close",
+      title: "Outdoor Plants",
     ),
   ];
   @override
